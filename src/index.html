@@ -4,11 +4,394 @@
   <meta charset="utf-8">
   <title>SaharaDashboard</title>
   <base href="/">
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-style.css" rel="stylesheet">
+    <link href="assets/css/flexslider.css" rel="stylesheet">
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+ 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+
+
+
+
+    <link rel="stylesheet" href="assets/css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+	<script type="text/javascript" src="assets/js/lineandbars.js"></script>
+
+
+
+
+	<script type="text/javascript" src="assets/js/gauge.js"></script>
+
+	<!-- NOTY JAVASCRIPT -->
+	<script type="text/javascript" src="assets/js/noty/jquery.noty.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/top.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topLeft.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topRight.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topCenter.js"></script>
+
+	<!-- You can add more layouts if you want -->
+	<script type="text/javascript" src="assets/js/noty/themes/default.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
+	<script type="text/javascript" src="assets/js/highchart.js"></script>
+	<script src="assets/js/jquery.flexslider.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="assets/js/admin.js"></script>
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+
+  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+      $("#btn-blog-next").click(function () {
+          $('#blogCarousel').carousel('next')
+      });
+      $("#btn-blog-prev").click(function () {
+          $('#blogCarousel').carousel('prev')
+      });
+
+      $("#btn-client-next").click(function () {
+          $('#clientCarousel').carousel('next')
+      });
+      $("#btn-client-prev").click(function () {
+          $('#clientCarousel').carousel('prev')
+      });
+
+  });
+
+  $(window).load(function () {
+
+      $('.flexslider').flexslider({
+          animation: "slide",
+          slideshow: true,
+          start: function (slider) {
+              $('body').removeClass('loading');
+          }
+      });
+  });
+
+</script>
+
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+
+  <!-- NAVIGATION MENU -->
+
+  <div class="navbar-nav navbar-inverse navbar-fixed-top">
+      <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="."><i class="icon-home icon-white"></i>Dashboard  Sahara IOT </a></li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+  </div>
+
+  <div class="container">
+
+  <!-- FIRST ROW OF BLOCKS -->
+    <div class="row">
+
+    <!-- USER PROFILE BLOCK -->
+      <div class="col-sm-3 col-lg-3">
+        <div class="dash-unit">
+          <dtitle>Admin</dtitle>
+          <hr>
+      <div class="thumbnail" style="border:0px;
+text-align:center;
+-webkit-box-shadow: 0px;
+   -moz-box-shadow: 0px;
+        box-shadow: 0px;
+  background: none;
+  text-align: center;">
+
+      <!-- /thumbnail -->
+      <h1>Unnamed Team</h1>
+      <h2>Isitcom</h2>
+              <h2>Nuit D'info 2018</h2>
+            <p>“L’assistance
+numérique d’un
+explorateur en
+conditions extrêmes” </p>
+
+
+
+
+      <br>
+      </div>
+      </div>
+      </div>
+
+    <!-- DONUT CHART BLOCK -->
+      <div class="col-sm-3 col-lg-3">
+        <div class="dash-unit">
+        <dtitle>Humidité</dtitle>
+        <hr>
+          <div ></div>
+      <div class="panel-body">
+      <div id="cont" data-pct="12">
+<svg id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+<circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+</svg>
+</div>
+<label for="percent"></label>
+
+<input id="percent" name="percent" class="form-control" type="hidden" value="<?php echo $hrouz1?>">
+
+    </div>
+
+    </div>
+      </div>
+
+    <!-- DONUT CHART BLOCK -->
+      <div class="col-sm-3 col-lg-3">
+        <div class="dash-unit">
+        <dtitle>Statistiques des 7 derniers jours</dtitle>
+        <hr>
+          <div class="panel-body">
+          <hr>
+
+            <div class="flexslider">
+        <ul class="slides">
+          <li><img src="https://i.pinimg.com/originals/2e/e6/99/2ee6998e34c3e2eff7b894c66cfc5267.jpg" alt="slider"></li>
+        </ul>
+          </div>
+
+
+
+
+
+
+
+    </div>
+    </div>
+      </div>
+
+
+      <div class="col-sm-3 col-lg-3">
+
+    <!-- LOCAL TIME BLOCK -->
+        <div class="half-unit">
+          <dtitle>Heure locale</dtitle>
+          <hr>
+            <div class="clockcenter">
+              <digiclock>02:53:25</digiclock>
+            </div>
+    </div>
+
+    <!-- SERVER UPTIME -->
+        <div class="half-unit">
+    <dtitle>Variation Temperature</dtitle>
+          <hr>
+          <div class="cont">
+           <div class="info-aapl">
+            <ul>
+              <li><span class="orange" style="height: 37.5%"></span></li>
+              <li><span class="orange" style="height: 47.5%"></span></li>
+              <li><span class="orange" style="height: 70%"></span></li>
+              <li><span class="orange" style="height: 85%"></span></li>
+              <li><span class="green" style="height: 75%"></span></li>
+              <li><span class="green" style="height: 50%"></span></li>
+              <li><span class="green" style="height: 15%"></span></li>
+            </ul>
+          </div>
+          </div>
+
+      </div>
+    </div><!-- /row -->
+
+
+  <!-- SECOND ROW OF BLOCKS -->
+    <div class="row">
+      <div class="col-sm-3 col-lg-3">
+
+  </div><!-- /span3 -->
+
+  <!-- GRAPH CHART - lineandbars.js file -->
+      <div class="col-sm-3 col-lg-3">
+        <div class="dash-unit">
+        <dtitle>Luminosité</dtitle>
+        <hr>
+        <div class="section-graph">
+          <div id="importantchart"></div>
+          <br>
+          <div class="graph-info">
+            <i class="graph-arrow"></i>
+            <span class="graph-info-big">634</span>
+          </div>
+        </div>
+    </div>
+      </div>
+
+  <!-- LAST MONTH REVENUE -->
+        <div class="col-sm-3 col-lg-3">
+    <div class="dash-unit">
+          <dtitle>Flame</dtitle>
+        <hr>
+          <div ></div>
+      <div class="panel-body">
+      <div id="cont" data-pct="0">
+<svg id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+<circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+</svg>
+</div>
+<label for="percent"></label>
+
+<input id="percent" name="percent" class="form-control" type="hidden" value="10">
+
+    </div>
+
+    </div>
+  </div>
+
+      </div>
+
+  <!-- 30 DAYS STATS - CAROUSEL FLEXSLIDER -->
+
+
+  <!-- THIRD ROW OF BLOCKS -->
+    <div class="row">
+      <div class="col-sm-3 col-lg-3">
+
+  <!-- BARS CHART - lineandbars.js file -->
+
+
+
+
+
+
+
+
+  <!-- FOLLOWERS BLOCK -->
+
+      </div>
+
+
+<div class="row">
+
+  <!-- TWITTER WIDGET BLOCK -->
+  <div class="col-sm-3 col-lg-3">
+
+      <br>
+       <div id="jstwitter" class="clearfix">
+        <ul id="twitter_update_list"></ul>
+      </div>
+      <script src="http://twitter.com/javascripts/blogger.js"></script><!-- Script Needed to load the Tweets -->
+      <script src="http://api.twitter.com/1/statuses/user_timeline/wrapbootstrap.json?callback=twitterCallback2&amp;count=1"></script>
+      <!-- To show your tweets replace "wrapbootstrap", in the line above, with your user. -->
+      <div class="text">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+   <!-- FOURTH ROW OF BLOCKS -->
+  <div class="row">
+
+
+
+
+  </div><!--/row -->
+
+
+
+</div> <!-- /container -->
+
+
+
+
 </body>
+<script>
+
+  $(document).ready(function(){
+
+    var val = $('#percent').val();
+    var $circle = $('#svg #bar');
+
+    if (isNaN(val)) {
+     val = 100;
+    }
+    else{
+      var r = $circle.attr('r');
+      var c = Math.PI*(r*2);
+
+      if (val < 0) { val = 0;}
+      if (val > 100) { val = 100;}
+
+      var pct = ((100-val)/100)*c;
+
+      $circle.css({ strokeDashoffset: pct});
+
+      $('#cont').attr('data-pct',val);
+    }
+  var val = $('#percent1').val();
+
+    var $circle = $('#svg1 #bar1');
+
+    if (isNaN(val)) {
+     val = 100;
+    }
+    else{
+      var r = $circle.attr('r');
+      var c = Math.PI*(r*2);
+
+      if (val < 0) { val = 0;}
+      if (val > 100) { val = 100;}
+
+      var pct = ((100-val)/100)*c;
+
+      $circle.css({ strokeDashoffset: pct});
+
+      $('#cont1').attr('data-pct1',val);
+    }
+
+  });
+  function fait_Array(n) {
+    this.length = n;
+    return this;
+  }
+
+
+  function display_c(){
+  var refresh=1000; // Refresh rate in milli seconds
+  mytime=setTimeout('display_ct()',refresh)
+  }
+
+  function display_ct() {
+  var strcount;
+  document.getElementById('ct').innerHTML = date;
+  tt=display_c();
+  }
+
+  </script>
 </html>
