@@ -36,4 +36,4 @@ Il faut taper la commande suivante "docker run --rm -d -p 80:80/tcp saharadashbo
 
 C'est la derniére étape qui consiste à affecter une adresse IP automatiquement au conteneur.
 
-Et voilà le projet devient exécutable et prêt à être utilisé.
+Et voilà le projet devient exécutable et prêt à être utilisé.# Dockerisation
