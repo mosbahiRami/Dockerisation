@@ -1,27 +1,39 @@
+
+
+
 # SaharaDashboard
+Ce présent travail est réalisé dans le cadre du défi: Dockerisation (220) par les membres de l'équipe Bright_side.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.1.
+Les étapes de création d'un dockerfile :
 
-## Development server
+# stage 1
+FROM node:latest as node   ** nous avons utilisé l'image nodeJS
+WORKDIR /app               ** nous avons définit le répertoire de travail WORKDIR
+COPY . .                   ** nous avons copié le contenu de répertoire pére dans l'image docker
+RUN npm install            ** nous avons installé toutes les dépendances mmentionnées dans le fichier package.json
+RUN npm run build --prod   
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# stage 2
+FROM nginx:alpine                                                     ** nous avons utilisé l'image nginx
+COPY --from=node /app/dist/SaharaDashboard /usr/share/nginx/html      ** nous avons copié le fichier du projet saharaDashboard dans nginx
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Les étapes d'installation :
+## Etape 1 :
+Il faut tout d'abord accéder au lien https://hub.docker.com/r/rami2018/saharadashboard/ qui présente l'image docker de notre application IoT.
+Bien évidemment il faut déjà avoir le docker installé sur votre machine.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Etape 2 :
 
-## Running unit tests
+Il faut taper cette commande  "docker pull rami2018/saharadashboard" sur le docker CLI afin de télécharger l'image à partir du docker hub.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Etape 3 :
+Il faut taper la commande suivante "docker run --rm -d -p 80:80/tcp saharadashboard:v3" sur le docker CLI qui permet de faire l'exécution de l'image dans un conteneur docker.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Etape 4 :
 
-## Further help
+C'est la derniére étape qui consiste à affecter une adresse IP automatiquement au conteneur.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Et voilà le projet devient exécutable et prêt à être utilisé.
